@@ -3,11 +3,11 @@ A simple Spring Boot webapp using:
 * Pulling in Bootstrap from CDN.
 * Github OAuth
 
-Link to my documentation web page: https://ucsb-cs56-f19.github.io/proj01-zhiyuning
+Link to my documentation web page: https://ucsb-cs56-f19.github.io/proj01-zhiyuning/
 
 Link to my Heroku app: https://cs56-f19-proj01-zhiyuning.herokuapp.com/
 
-Link to my Travis CI page: https://travis-ci.org/ucsb-cs56-f19/proj01-zhiyuning?utm_medium=notification
+Link to my Travis CI page: https://travis-ci.com/ucsb-cs56-f19/proj01-zhiyuning/builds/138897983
 
 # Running on Localhost.
 
