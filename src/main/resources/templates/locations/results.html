@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en"> 
   <head>
-    <title>Location Search Results</title>
+    <title>Location Search</title>
     <div th:replace="bootstrap/bootstrap_head.html"></div>
   </head>
   <body>
@@ -9,15 +9,42 @@
       <div th:replace="bootstrap/bootstrap_nav_header.html"></div>
 
       <h1>Location Search Results</h1>
-
-      <h2>Results</h2>
-
-      <table>
+      <table class="table">
             <tr>
                 <th>Locations</th>
                 <td th:text="${locSearch.location}"></td>
             </tr>
+      </table>
+
+      <h2>Location Search Results</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Place Id</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Display Name</th>
+                    <th>Type</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+            	<tr th:each="p: ${place}">
+                    <td th:text="${p.place_id}"></td>
+   		 			<td th:text="${p.latitude}"></td>
+					<td th:text="${p.longitude}"></td>  
+					<td th:text="${p.displayname}"></td>
+					<td th:text="${p.type}"></td>        
+                </tr>
+            </tbody>
+
         </table>
+
+
+      
 	
 	    
       <div th:replace="bootstrap/bootstrap_footer.html"></div>
