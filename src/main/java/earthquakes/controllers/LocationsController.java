@@ -23,25 +23,24 @@ public class LocationsController {
 
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
-    
+
     @GetMapping("/locations/search")
     public String getLocationsSearch(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             LocSearch locSearch) {
         return "locations/search";
     }
 
-    
+
     @GetMapping("/locations/results")
     public String getLocationsResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
           LocSearch locSearch) {
 
-	LocationQueryService l = new LocationQueryService();
-
+      LocationQueryService l = new LocationQueryService();
       model.addAttribute("locSearch", locSearch);
       String json = l.getJSON(locSearch.getLocation());
       model.addAttribute("json", json);
-      List<Place> places = Place.listFromJson(json);
-      model.addAttribute("Place", places);
+      List<Place> place = Place.listFromJson(json);
+      model.addAttribute("place", place);
       return "locations/results";
     }
 }

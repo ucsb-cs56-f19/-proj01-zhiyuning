@@ -23,8 +23,8 @@ public class Place{
 	try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-	    
-            List<Place> place = objectMapper.readValue(json, new TypeReference<List<Place>>(){});
+
+            List<Place> place = objectMapper.readValue(json, objectMapper.getTypeFactory().constructCollectionType(List.class, Place.class));
             return place;
         } catch (JsonProcessingException jpe) {
             logger.error("JsonProcessingException:" + jpe);
@@ -34,6 +34,6 @@ public class Place{
             return null;
         }
     }
-    
+
 
 }
