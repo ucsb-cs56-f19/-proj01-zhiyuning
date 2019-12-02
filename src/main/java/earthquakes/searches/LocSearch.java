@@ -7,9 +7,8 @@ public class LocSearch{
       return location;
     }
 
-    void setLocation(String locatl){
-      location=locatl;
-
+    public void setLocation(String loC){
+      location=loC;
     }
 
 }
