@@ -57,7 +57,7 @@ public class LocationsController {
       return "locations/results";
     }
 
-    @GetMapping("/locations/index")
+    @GetMapping("/locations")
     public String index(Model model) {
 	
         Iterable<Location> locations = locationRepository.findAll();
