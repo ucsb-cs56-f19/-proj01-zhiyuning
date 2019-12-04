@@ -19,11 +19,16 @@ import earthquakes.searches.LocSearch;
 import earthquakes.services.LocationQueryService;
 import earthquakes.osm.Place;
 
+import earthquakes.entities.Location;
+import earthquakes.repositories.LocationRepository;
+
 import earthquakes.geojson.FeatureCollection;
 
 
 @Controller
 public class LocationsController {
+
+    private LocationRepository locationRepository;
 
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
@@ -46,5 +51,14 @@ public class LocationsController {
       List<Place> place = Place.listFromJson(json);
       model.addAttribute("place", place);
       return "locations/results";
+    }
+
+    @GetMapping("/locations")
+    public String index(Model model) {
+
+	
+        Iterable<Location> locations = locationRepository.findAll();
+        model.addAttribute("locations", locations);
+        return "locations/index";
     }
 }
