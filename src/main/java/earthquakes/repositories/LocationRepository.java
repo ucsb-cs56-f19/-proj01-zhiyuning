@@ -7,5 +7,5 @@ import earthquakes.entities.Location;
 
 @Repository
 public interface LocationRepository extends CrudRepository<Location, Long> {
-   List<Location> findByPlaceId (Long PlaceId);
+    // List<Location> findByPlaceId (Long PlaceId);
 }

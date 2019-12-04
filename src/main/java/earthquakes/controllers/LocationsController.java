@@ -32,7 +32,11 @@ public class LocationsController {
 
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
-
+    public LocationsController(LocationRepository locationRepository){
+	this.locationRepository = locationRepository;
+    }
+    
+    
     @GetMapping("/locations/search")
     public String getLocationsSearch(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             LocSearch locSearch) {
@@ -55,7 +59,6 @@ public class LocationsController {
 
     @GetMapping("/locations")
     public String index(Model model) {
-
 	
         Iterable<Location> locations = locationRepository.findAll();
         model.addAttribute("locations", locations);
