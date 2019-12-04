@@ -3,8 +3,8 @@ package earthquakes.searches;
 public class EqSearch{
     private int distance;
     private int minmag;
-    private int lat;
-    private int lon;
+    private double lat;
+    private double lon;
     private String location;
 
     
@@ -17,11 +17,11 @@ public class EqSearch{
 	return minmag;
     }
 
-    public int getLat(){
+    public double getLat(){
 	return lat;
     }
 
-    public int getLon(){
+    public double getLon(){
 	return lon;
     }
 
@@ -38,11 +38,11 @@ public class EqSearch{
 	minmag = MM;
     }
 
-    public void setLat(int Latitude){
+    public void setLat(double Latitude){
 	lat = Latitude;
     }
 
-    public void setLon(int Longtitude){
+    public void setLon(double Longtitude){
 	lon = Longtitude;
     }
 
