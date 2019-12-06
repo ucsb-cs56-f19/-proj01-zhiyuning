@@ -69,11 +69,11 @@ public class LocationsController {
     }
 
     @PostMapping("/locations/add")
-    public String add(Location location, Model model, OAuth2AuthenticationToken token) {
-      location.setUid(token.getPrincipal().getAttributes().get("uid").toString()); 
-      locationRepository.save(location);
-      model.addAttribute("locations", locationRepository.findAll());
-      return "locations/index";
+    public String add(Location location, Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken) {
+        location.setUid(oAuth2AuthenticationToken.getPrincipal().getAttributes().get("id").toString(););
+        locationRepository.save(location);
+        model.addAttribute("locations", locationRepository.findAll());
+        return "locations/index";
     }
 
     @DeleteMapping("/locations/delete/{id}")
@@ -86,8 +86,7 @@ public class LocationsController {
 
     @GetMapping("/locations/admin")
     public String admin(Model model) {
-	
-        Iterable<Location> locations = locationRepository.findAll();
+	Iterable<Location> locations = locationRepository.findAll();
         model.addAttribute("locations", locations);
         return "locations/admin";
     }
